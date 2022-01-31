@@ -5,6 +5,7 @@ import at.itkolleg.chainofresponsibility.WR;
 import at.itkolleg.decorator.FixGebuerenDecorator;
 import at.itkolleg.decorator.GebuerenDecorator;
 import at.itkolleg.exceptions.UmrechnerNichtGefundenException;
+import at.itkolleg.observer.LogObserver;
 
 
 public class Main {
@@ -32,6 +33,9 @@ public class Main {
 
         SA tests = new SA(new GebuerenDecorator(new EUR2DOLLAR(new EUR2YEN(null))));
 
+        WR kette4 = new FixGebuerenDecorator(new EUR2DOLLAR(new EUR2YEN(null)));
+
+        LogObserver observer1 = new LogObserver(kette4);
 
 
 
@@ -57,6 +61,9 @@ public class Main {
             System.out.println(kette3.umrechnen("EUR2YEN",150));
             System.out.println(kette3.umrechnen("EUR2DOLLAR",150));
             //System.out.println(kette3.umrechnen("EUR2YUAN",100));
+
+            kette4.umrechnen("EUR2DOLLAR",150);
+            observer1.ausgabe();
 
 
 
