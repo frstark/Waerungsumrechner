@@ -31,8 +31,8 @@ public class WR implements IUmrechnen,ISubjekt{
     public double umrechnen(String variante, double betrag) throws UmrechnerNichtGefundenException {
         if (nextWR != null) {
             ausgangBetrag = betrag;
-            ausgangWaehrung = variante;
-            zielWaehrung = variante;
+            ausgangWaehrung = variante.substring(0,3);
+            zielWaehrung = variante.substring(4);
             zielBetrag = nextWR.umrechnen(variante, betrag);
             notifyObserver();
 
@@ -67,25 +67,7 @@ public class WR implements IUmrechnen,ISubjekt{
 
     }
 
-    public void setAusgangBetrag(double ausgangBetrag) {
-        this.ausgangBetrag = ausgangBetrag;
-        notifyObserver();
-    }
 
-    public void setAusgangWaehrung(String ausgangWaehrung) {
-        this.ausgangWaehrung = ausgangWaehrung;
-        notifyObserver();
-    }
-
-    public void setZielWaehrung(String zielWaehrung) {
-        this.zielWaehrung = zielWaehrung;
-        notifyObserver();
-    }
-
-    public void setZielBetrag(double zielBetrag) {
-        this.zielBetrag = zielBetrag;
-        notifyObserver();
-    }
 }
 
 

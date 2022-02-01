@@ -62,7 +62,7 @@ public class Main {
             System.out.println(kette3.umrechnen("EUR2DOLLAR",150));
             //System.out.println(kette3.umrechnen("EUR2YUAN",100));
 
-            kette4.umrechnen("EUR2DOLLAR",150);
+            kette4.umrechnen("EUR2YEN",150);
             observer1.ausgabe();
 
 

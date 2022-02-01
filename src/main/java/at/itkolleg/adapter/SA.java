@@ -9,6 +9,7 @@ public class SA extends WR implements ISammelumrechnung {
 
 
     public SA(WR nextWR) {
+
         super(nextWR);
     }
 
